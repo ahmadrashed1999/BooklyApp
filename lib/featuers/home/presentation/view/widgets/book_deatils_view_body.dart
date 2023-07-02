@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/styles.dart';
 import 'custom_book_deatiles_app_bar.dart';
 import 'custom_list_view_item.dart';
 
@@ -17,7 +18,20 @@ class BookDeatilsViewBody extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.17),
             child: const CustomListViewItem(),
-          )
+          ),
+          const SizedBox(
+            height: 43,
+          ),
+          const Text('The Jungle book', style: Styles.textStyle30),
+          const SizedBox(
+            height: 10,
+          ),
+          Opacity(
+            opacity: 0.7,
+            child: Text('The Jungle book',
+                style: Styles.textStyle18.copyWith(
+                    fontStyle: FontStyle.italic, fontWeight: FontWeight.w500)),
+          ),
         ],
       ),
     );

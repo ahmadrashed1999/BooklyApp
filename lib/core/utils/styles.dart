@@ -28,7 +28,7 @@ abstract class Styles {
 
   static const textStyle30 = TextStyle(
     fontSize: 30,
-    fontFamily: kOswald,
+    fontFamily: kAmiri,
     fontWeight: FontWeight.normal,
   );
 }
