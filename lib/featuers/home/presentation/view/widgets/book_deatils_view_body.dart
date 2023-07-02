@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
+import '../similar_books_list_view.dart';
 import 'book_action.dart';
 import 'book_rating.dart';
 import 'custom_book_deatiles_app_bar.dart';
@@ -15,7 +16,7 @@ class BookDeatilsViewBody extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
+      child: ListView(
         children: [
           const CustomBookDeatilsAppBar(),
           Padding(
@@ -44,9 +45,29 @@ class BookDeatilsViewBody extends StatelessWidget {
           const SizedBox(
             height: 37,
           ),
-          const BookAction()
+          const BookAction(),
+          const SizedBox(
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const SimilarBooksListView(),
+          const SizedBox(
+            height: 40,
+          ),
         ],
       ),
     );
   }
 }
+
