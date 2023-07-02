@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+
+import 'book_action.dart';
 import 'book_rating.dart';
 import 'custom_book_deatiles_app_bar.dart';
 import 'custom_list_view_item.dart';
@@ -25,7 +27,7 @@ class BookDeatilsViewBody extends StatelessWidget {
           ),
           const Text('The Jungle book', style: Styles.textStyle30),
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           Opacity(
             opacity: 0.7,
@@ -39,6 +41,10 @@ class BookDeatilsViewBody extends StatelessWidget {
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
+          const SizedBox(
+            height: 37,
+          ),
+          const BookAction()
         ],
       ),
     );
