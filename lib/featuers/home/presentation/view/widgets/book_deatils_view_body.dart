@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import 'book_rating.dart';
 import 'custom_book_deatiles_app_bar.dart';
 import 'custom_list_view_item.dart';
 
@@ -31,6 +32,12 @@ class BookDeatilsViewBody extends StatelessWidget {
             child: Text('The Jungle book',
                 style: Styles.textStyle18.copyWith(
                     fontStyle: FontStyle.italic, fontWeight: FontWeight.w500)),
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),
