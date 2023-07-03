@@ -15,8 +15,7 @@ class FeatuerBooksSuccess extends FeatuerBooksState {
   final List<BookModel> books;
 
   const FeatuerBooksSuccess(this.books);
-  // @override
-  // List<Object> get props => [books];
+
 }
 
 class FeatuerBooksFailuer extends FeatuerBooksState {
