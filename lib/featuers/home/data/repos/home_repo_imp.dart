@@ -7,7 +7,9 @@ import 'package:dio/dio.dart';
 import '../../../../core/utils/api_service.dart';
 
 class HomeRepoImp implements HomeRepo {
-  late final ApiService apiService;
+  final ApiService apiService;
+
+  HomeRepoImp(this.apiService);
   @override
   Future<Either<Failuers, List<BookModel>>> fetchNewsetBooks() {
     try {
