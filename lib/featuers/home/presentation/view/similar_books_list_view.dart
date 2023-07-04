@@ -14,7 +14,9 @@ class SimilarBooksListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 12),
-            child: CustomListViewItem(),
+            child: CustomListViewItem(
+              imageUrl: 'https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-pp-mrh-4-thy-fathers-house.jpg',
+            ),
           );
         },
         itemCount: 10,

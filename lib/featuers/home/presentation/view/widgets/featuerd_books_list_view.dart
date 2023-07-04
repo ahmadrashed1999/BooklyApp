@@ -17,14 +17,18 @@ class FeatuerdBooksListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(right: 16),
-                  child: CustomListViewItem(),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: CustomListViewItem(
+                      imageUrl: state
+                          .books[index].volumeInfo!.imageLinks!.thumbnail
+                          .toString()),
                 );
               },
-              itemCount: 10,
             ),
           );
         } else if (state is FeatuerBooksFailuer) {

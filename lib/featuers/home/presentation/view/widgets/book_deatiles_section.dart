@@ -15,7 +15,10 @@ class BookDeatilesSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child: const CustomListViewItem(),
+          child: const CustomListViewItem(
+            imageUrl:
+                'https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-pp-mrh-4-thy-fathers-house.jpg',
+          ),
         ),
         const SizedBox(
           height: 43,
