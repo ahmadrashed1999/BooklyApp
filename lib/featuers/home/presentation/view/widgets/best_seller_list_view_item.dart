@@ -1,5 +1,7 @@
 import 'package:booklyapp/core/utils/asstes.dart';
 import 'package:booklyapp/core/utils/styles.dart';
+import 'package:booklyapp/featuers/home/data/model/book_model/book_model.dart';
+import 'package:booklyapp/featuers/home/presentation/view/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,8 +9,8 @@ import '../../../../../core/utils/app_router.dart';
 import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,19 +21,8 @@ class BestSellerListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.red,
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.logo),
-                  ),
-                ),
-              ),
-            ),
+            CustomListViewItem(
+                imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!),
             const SizedBox(
               width: 30,
             ),
@@ -41,8 +32,8 @@ class BestSellerListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child: const Text(
-                      "The 5 AM Club ",
+                    child: Text(
+                      bookModel.volumeInfo!.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20,
@@ -51,8 +42,9 @@ class BestSellerListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text(
-                    "Robin Sharma",
+                  Text(
+                    overflow: TextOverflow.ellipsis,
+                    bookModel.volumeInfo!.authors!.join(", "),
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -61,12 +53,15 @@ class BestSellerListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "19.99 \$",
+                        'Free',
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo!.averageRating ??0,
+                        count: bookModel.volumeInfo!.ratingsCount ??0,
+                      ),
                     ],
                   )
                 ],

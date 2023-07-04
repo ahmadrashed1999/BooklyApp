@@ -16,8 +16,8 @@ class VolumeInfo extends Equatable {
   final num? pageCount;
   final String? printType;
   final List<String>? categories;
-  final num? averageRating;
-  final num? ratingsCount;
+  final double? averageRating;
+  final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
@@ -69,8 +69,8 @@ class VolumeInfo extends Equatable {
         pageCount: num.tryParse(json['pageCount'].toString()),
         printType: json['printType']?.toString(),
         categories: List<String>.from(json['categories'] ?? []),
-        averageRating: num.tryParse(json['averageRating'].toString()),
-        ratingsCount: num.tryParse(json['ratingsCount'].toString()),
+        averageRating: double.tryParse(json['averageRating'].toString()),
+        ratingsCount: int.tryParse(json['ratingsCount'].toString()),
         maturityRating: json['maturityRating']?.toString(),
         allowAnonLogging: json['allowAnonLogging']?.toString().contains("true"),
         contentVersion: json['contentVersion']?.toString(),
